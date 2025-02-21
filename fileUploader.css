@@ -1,0 +1,19 @@
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Spacing between images */
+    padding: 0;
+    justify-content: flex-start; /* Align items at the start */
+}
+
+.file-item {
+    flex: 1 1 auto; /* Allow images to keep their original size */
+    text-align: center;
+}
+
+.uploaded-image {
+    max-width: 100%; /* Prevents overflow but keeps original size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

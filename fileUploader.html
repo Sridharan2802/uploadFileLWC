@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-20-2025
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="LWC File Upload Example" icon-name="custom:custom19">
+        
+        <lightning-file-upload
+            label="Attach a file"
+            name="fileUploader"
+            accept={acceptedFormats}
+            record-id={recordId}
+            onuploadfinished={handleUploadFinished}
+            multiple>
+        </lightning-file-upload>
+
+        <!-- Display uploaded files -->
+        <template if:true={filesUploaded}>
+            <lightning-card title="Uploaded Files" icon-name="standard:file">
+                <ul class="file-list">
+                    <template for:each={uploadedFiles} for:item="file">
+                        <li key={file.id} class="file-item">
+                            <template if:true={file.isImage}>
+                                <img src={file.url} alt={file.name} class="uploaded-image" />
+                            </template>
+                            <template if:false={file.isImage}>
+                                <a href={file.url} target="_blank">{file.name}</a>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+            </lightning-card>
+        </template>
+
+    </lightning-card>
+</template>
